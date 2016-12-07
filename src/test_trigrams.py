@@ -8,6 +8,6 @@ def test_trigrams():
 
 
 def test_pulltext():
-    """Test pulling text from a file and storing it as a string."""
+    """Test pulling text and splitting it into a list of single words."""
     from trigrams import pulltext
-    assert len(pulltext())
+    assert pulltext()[0] == "One"
