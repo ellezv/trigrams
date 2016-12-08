@@ -20,3 +20,19 @@ def build_tridict():
         except:
             break
     return tridict
+
+
+def create_output(user_int):
+    """Create a list of words generated with a trigram."""
+    tridict = build_tridict()
+    output = []
+    random_key = "up to"
+    output.extend(random_key.split())
+    for i in range(user_int):
+        try:
+            new_key = ' '.join(output[-2:])
+            output.append(tridict[new_key][0])
+            print(new_key)
+        except IndexError:
+            print("no more combination")
+    return " ".join(output)

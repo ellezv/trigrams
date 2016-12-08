@@ -9,7 +9,7 @@ DICT_TABLE = [
     ["on the", ["twentieth"]],
 ]
 
-OUTPUT_LIST = ["up to the chamber which had formerly been in part my own"]
+OUTPUT_LIST = "up to the chamber which had formerly been in part my own"
 
 
 def test_pulltext():
