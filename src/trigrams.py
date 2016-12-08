@@ -30,7 +30,7 @@ def create_output(file_path, user_int):
     """Create a list of words generated with a trigram."""
     tridict = build_tridict(file_path)
     output = []
-    random_key = "I was"
+    random_key = random.choice(tridict.keys())
     output.extend(random_key.split())
     for i in range(user_int):
         try:
