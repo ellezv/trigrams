@@ -3,10 +3,6 @@
 import io
 
 
-def two_words():
-    """Take a list and return a string of the first two indices."""
-    return str(BOOK_LIST[0:2])
-
-
 def pulltext():
-    text = io.open("../sample.txt")
+    """Open a text file and turn it into a list of single word strings."""
+    return io.open("../sample.txt").read().split()
