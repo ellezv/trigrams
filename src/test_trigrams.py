@@ -11,6 +11,7 @@ DICT_TABLE = [
 
 OUTPUT_LIST = ["up to the chamber which had formerly been in part my own"]
 
+
 def test_pulltext():
     """Test pulling text and splitting it into a list of single words."""
     from trigrams import pulltext
