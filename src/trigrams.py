@@ -3,6 +3,7 @@
 import io
 import re
 import random
+import sys
 
 
 def pulltext(file_path):
@@ -35,7 +36,10 @@ def create_output(file_path, user_int):
         try:
             new_key = ' '.join(output[-2:])
             output.append(random.choice(tridict[new_key]))
-            print(new_key)
         except IndexError:
             print("no more combination")
-    return " ".join(output)
+    print(" ".join(output))
+
+
+if __name__ == '__main__':
+    create_output(sys.argv[1], int(sys.argv[2]))
