@@ -4,9 +4,9 @@
 import pytest
 
 DICT_TABLE = [
-    ["One night--it", ["was"]],
-    ["night--it was", ["on"]],
-    ["was on", ["the"]],
+    ["One night", ["it"]],
+    ["night it", ["was"]],
+    ["on the", ["twentieth"]],
 ]
 
 
