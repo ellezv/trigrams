@@ -2,6 +2,7 @@
 
 import io
 import re
+import random
 
 
 def pulltext():
@@ -26,12 +27,12 @@ def create_output(user_int):
     """Create a list of words generated with a trigram."""
     tridict = build_tridict()
     output = []
-    random_key = "up to"
+    random_key = "I was"
     output.extend(random_key.split())
     for i in range(user_int):
         try:
             new_key = ' '.join(output[-2:])
-            output.append(tridict[new_key][0])
+            output.append(random.choice(tridict[new_key]))
             print(new_key)
         except IndexError:
             print("no more combination")
