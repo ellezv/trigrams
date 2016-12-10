@@ -1,5 +1,4 @@
 """This module contains an implementation of a trigram algorithm."""
-
 import io
 import re
 import random
@@ -21,26 +20,36 @@ def build_tridict(file_path):
             key = text[idx] + " " + text[idx + 1]
             value = text[idx + 2]
             tridict.setdefault(key, []).append(value)
-        except:
+        except IndexError:
             break
+    generate_key_list(tridict)
     return tridict
+
+
+def generate_key_list(tridict):
+    """Generate a key list."""
+    return [key for key in tridict]
+
+
+def generate_random_key(tridict):
+    """Generate a random key."""
+    random_key = random.choice(generate_key_list(tridict))
+    create_output
+    return random_key
 
 
 def create_output(file_path, user_int):
     """Create a list of words generated with a trigram."""
     tridict = build_tridict(file_path)
     output = []
-    key_list = []
-    for key in tridict:
-        key_list.append(key)
-    random_key = random.choice(key_list)
-    output.extend(random_key.split())
+    output.extend(generate_random_key(tridict).split())
     for i in range(user_int):
         try:
             new_key = ' '.join(output[-2:])
             output.append(random.choice(tridict[new_key]))
-        except IndexError:
-            print("no more combination")
+        except KeyError:
+            new_key = generate_random_key(tridict)
+            output.append(random.choice(tridict[new_key]))
     print(" ".join(output))
 
 
