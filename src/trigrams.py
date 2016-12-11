@@ -8,7 +8,7 @@ import sys
 def pulltext(file_path):
     """Open a text file and turn it into a list of single word strings."""
     text_file = io.open(file_path).read()
-    return re.findall('\w+', text_file)
+    return re.findall("[A-Za-z0-9 .,!?/$]*", text_file)
 
 
 def build_tridict(file_path):
@@ -34,7 +34,6 @@ def generate_key_list(tridict):
 def generate_random_key(tridict):
     """Generate a random key."""
     random_key = random.choice(generate_key_list(tridict))
-    create_output
     return random_key
 
 
@@ -43,13 +42,13 @@ def create_output(file_path, user_int):
     tridict = build_tridict(file_path)
     output = []
     output.extend(generate_random_key(tridict).split())
-    for i in range(user_int):
+    while len(output) < user_int:
         try:
             new_key = ' '.join(output[-2:])
             output.append(random.choice(tridict[new_key]))
         except KeyError:
             new_key = generate_random_key(tridict)
-            output.append(random.choice(tridict[new_key]))
+            output.extend(new_key.split())
     print(" ".join(output))
 
 
