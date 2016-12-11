@@ -4,9 +4,9 @@
 import pytest
 
 DICT_TABLE = [
-    ["../sample.txt", "One night", ["it"]],
-    ["../sample.txt", "night it", ["was"]],
-    ["../sample.txt", "on the", ["twentieth"]],
+    ["../sample.txt", "night--it was", ["on"]],
+    ["../sample.txt", "was on", ["the"]],
+    ["../sample.txt", "pacing the", ["room"]]
 ]
 
 KEY_TABLE = [

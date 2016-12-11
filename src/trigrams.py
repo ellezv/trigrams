@@ -1,6 +1,5 @@
 """This module contains an implementation of a trigram algorithm."""
 import io
-import re
 import random
 import sys
 
@@ -8,7 +7,7 @@ import sys
 def pulltext(file_path):
     """Open a text file and turn it into a list of single word strings."""
     text_file = io.open(file_path).read()
-    return re.findall("[A-Za-z0-9 .,!?/$]*", text_file)
+    return text_file.split()
 
 
 def build_tridict(file_path):
